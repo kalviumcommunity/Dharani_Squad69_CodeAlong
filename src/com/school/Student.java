@@ -5,10 +5,19 @@ public class Student {
     private int studentId;
     private String name;
 
-    // Constructor
+
     public Student(String name) {
         this.studentId = nextStudentIdCounter++;
         this.name = name;
+    }
+
+    // Public getters for encapsulation
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void displayDetails() {
