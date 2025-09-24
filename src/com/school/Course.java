@@ -1,6 +1,6 @@
 package com.school;
 
-public class Course {
+public class Course implements Storable {
     private static int nextCourseIdCounter = 101;
     private int courseId;
     private String courseName;
@@ -11,16 +11,15 @@ public class Course {
         this.courseName = courseName;
     }
 
-    // Public getters for encapsulation
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public String getCourseName() {
-        return courseName;
-    }
+    public int getCourseId() { return courseId; }
+    public String getCourseName() { return courseName; }
 
     public void displayDetails() {
         System.out.println("Course ID: C" + courseId + ", Name: " + courseName);
+    }
+
+    @Override
+    public String toDataString() {
+        return courseId + "," + courseName;
     }
 }
