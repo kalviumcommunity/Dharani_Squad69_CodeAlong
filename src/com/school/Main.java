@@ -6,30 +6,25 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Students
-        Student student1 = new Student("Amara", "12th Grade");
-        Student student2 = new Student("Arnav", "12th Grade");
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Amara", "12th Grade"));
+        students.add(new Student("Arnav", "12th Grade"));
 
-        // Teachers
-        Teacher teacher1 = new Teacher("Mr. Smith", "Mathematics");
-        Teacher teacher2 = new Teacher("Ms. Johnson", "Science");
+        // Courses
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(new Course("Mathematics"));
+        courses.add(new Course("Botany"));
 
-        // Staff
-        Staff staff1 = new Staff("Mr. Lee", "Librarian");
+        // Attendance Records
+        ArrayList<AttendanceRecord> records = new ArrayList<>();
+        records.add(new AttendanceRecord(students.get(0).getId(), courses.get(0).getCourseId(), "Present"));
+        records.add(new AttendanceRecord(students.get(1).getId(), courses.get(1).getCourseId(), "Absent"));
+        records.add(new AttendanceRecord(students.get(0).getId(), courses.get(1).getCourseId(), "Late")); // invalid
 
-        // Display
-        System.out.println("=== Persons ===");
-        student1.displayDetails();
-        student2.displayDetails();
-        teacher1.displayDetails();
-        teacher2.displayDetails();
-        staff1.displayDetails();
-
-        // Example AttendanceRecord usage with new student IDs
-        List<AttendanceRecord> attendanceLog = new ArrayList<>();
-        attendanceLog.add(new AttendanceRecord(student1.getId(), 101, "Present"));
-        attendanceLog.add(new AttendanceRecord(student2.getId(), 102, "Absent"));
-
-        System.out.println("=== Attendance Records ===");
-        for (AttendanceRecord record : attendanceLog) record.displayRecord();
+        // Save data to files
+        FileStorageService storageService = new FileStorageService();
+        storageService.saveData(students, "students.txt");
+        storageService.saveData(courses, "courses.txt");
+        storageService.saveData(records, "attendance_log.txt");
     }
 }
