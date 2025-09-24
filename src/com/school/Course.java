@@ -5,10 +5,19 @@ public class Course {
     private int courseId;
     private String courseName;
 
-    // Constructor
+
     public Course(String courseName) {
         this.courseId = nextCourseIdCounter++;
         this.courseName = courseName;
+    }
+
+    // Public getters for encapsulation
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public String getCourseName() {
+        return courseName;
     }
 
     public void displayDetails() {
