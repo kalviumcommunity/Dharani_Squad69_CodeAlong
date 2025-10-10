@@ -8,10 +8,14 @@ public class Student extends Person implements Storable {
         this.gradeLevel = gradeLevel;
     }
 
+    public String getGradeLevel() {
+        return gradeLevel;
+    }
+
     @Override
     public void displayDetails() {
         super.displayDetails();
-        System.out.println("Role: Student, Grade Level: " + gradeLevel);
+        System.out.println("Grade Level: " + gradeLevel + " (Role: Student)");
     }
 
     @Override
@@ -19,3 +23,4 @@ public class Student extends Person implements Storable {
         return getId() + "," + getName() + "," + gradeLevel;
     }
 }
+
