@@ -1,2 +1,3 @@
 101,Mathematics
-102,Botany
+102,English
+103,Economics
